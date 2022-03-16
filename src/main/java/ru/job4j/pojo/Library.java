@@ -16,12 +16,11 @@ public class Library {
     }
 
     public static void main(String[] args) {
-        Book cleanCode = new Book("Clean code", 400);
         Book[] books = new Book[4];
         books[0] = new Book("Колобок", 25);
         books[1] = new Book("Мойдодыр", 50);
         books[2] = new Book("Незнайка на Луне", 220);
-        books[3] = cleanCode;
+        books[3] = new Book("Clean code", 400);
         print(books, "Список книг:");
 
         swap(books, 0, 3);
@@ -29,7 +28,7 @@ public class Library {
 
         System.out.println("\tСписок книг с фильтром:");
         for (Book book : books) {
-            if (book.equals(cleanCode)) {
+            if ("Clean code".equals(book.getName())) {
                 System.out.println(book.getName() + " - " + book.getPages());
             }
         }
