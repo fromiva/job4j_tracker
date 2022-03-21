@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.core.IsNull.nullValue;
 
 public class TrackerTest {
     @Test
@@ -75,5 +76,31 @@ public class TrackerTest {
         bugWithDesc.setName("Bug with description");
         tracker.replace(id, bugWithDesc);
         assertThat(tracker.findById(id).getName(), is("Bug with description"));
+    }
+
+    @Test
+    public void whenDeleteFirstElement() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item();
+        bug.setName("Bug");
+        tracker.add(bug);
+        int id = bug.getId();
+        tracker.delete(id);
+        assertThat(tracker.findById(id), is(nullValue()));
+    }
+
+    @Test
+    public void whenDeleteThirdElement() {
+        Tracker tracker = new Tracker();
+        tracker.add(new Item("Item0"));
+        tracker.add(new Item("Item1"));
+        Item bug = new Item();
+        bug.setName("Bug");
+        tracker.add(bug);
+        tracker.add(new Item("Item3"));
+        tracker.add(new Item("Item4"));
+        int id = bug.getId();
+        tracker.delete(id);
+        assertThat(tracker.findById(id), is(nullValue()));
     }
 }
