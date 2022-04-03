@@ -2,8 +2,8 @@ package ru.job4j.poly;
 
 public class Bus implements Transport {
 
-    int passengers;
-    int fuel;
+    private int passengers;
+    private int fuel;
 
     public Bus() {
         this.passengers = 0;
@@ -23,6 +23,6 @@ public class Bus implements Transport {
 
     @Override
     public void drive() {
-
+        System.out.println(getClass().getSimpleName() + " is traveling on road.");
     }
 }
