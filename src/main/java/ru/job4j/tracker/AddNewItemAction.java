@@ -1,6 +1,12 @@
 package ru.job4j.tracker;
 
 public class AddNewItemAction implements UserAction {
+    private final Output output;
+
+    public AddNewItemAction(Output output) {
+        this.output = output;
+    }
+
     @Override
     public String name() {
         return "Add new Item";
