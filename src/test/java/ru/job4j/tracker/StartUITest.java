@@ -109,7 +109,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item1 = tracker.add(new Item("Item 1"));
         Item item2 = tracker.add(new Item("Item 2"));
-        Input input = new StubInput(new String[]{"0", "1", "1"});
+        Input input = new StubInput(new String[]{"0", String.valueOf(item1.getId()), "1"});
         UserAction[] actions = {
                 new FindItemByIdAction(output),
                 new ExitAction()
