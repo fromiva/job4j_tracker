@@ -9,19 +9,17 @@ public class UserStore {
                 break;
             }
         }
-        if (result != null) {
-            return result;
-        } else {
+        if (result == null) {
             throw new UserNotFoundException("User \"" + login + "\" is not found.");
         }
+        return result;
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        if (user.isValid() && user.getUsername().length() >= 3) {
-            return true;
-        } else {
+        if (!user.isValid() || user.getUsername().length() < 3) {
             throw new UserInvalidException("User \"" + user.getUsername() + "\" is not valid user.");
         }
+        return true;
     }
 
     public static void main(String[] args) {
