@@ -24,10 +24,10 @@ public class OrderConvertTest {
         List<Order> orders = new ArrayList<>();
         orders.add(new Order("8sff", "Mobile Phone"));
         orders.add(new Order("3sfe", "Shoes"));
-        Order expected = new Order("3sfe", "Dress");
-        orders.add(expected);
+        orders.add(new Order("3sfe", "Dress"));
         HashMap<String, Order> map = OrderConvert.process(orders);
-        Order actual = map.get("3sfe");
-        assertEquals(expected, actual);
+        int expectedSize = 2;
+        int actualSize = map.size();
+        assertEquals(expectedSize, actualSize);
     }
 }
