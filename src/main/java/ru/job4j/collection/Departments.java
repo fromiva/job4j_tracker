@@ -12,8 +12,7 @@ public class Departments {
         for (String dep : deps) {
             String string = "";
             for (String element : dep.split("/")) {
-                String devider = string.equals("") ? "" : "/";
-                string = string + devider + element;
+                string = "".equals(string) ? element : string + "/" + element;
                 result.add(string);
             }
         }
