@@ -13,8 +13,8 @@ public class StudentLevelTest {
         students.add(new Student(28, "Masha"));
         students.add(new Student(128, "Pety"));
         List<Student> expected = List.of(
-                new Student(28, "Masha"),
-                new Student(128, "Pety")
+                new Student(128, "Pety"),
+                new Student(28, "Masha")
         );
         List<Student> actual = StudentLevel.levelOf(students, 20);
         assertEquals(expected, actual);
